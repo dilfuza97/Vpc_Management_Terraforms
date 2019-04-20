@@ -4,6 +4,7 @@ resource "aws_instance" "dev" {
    count = "${var.count}"
    key_name = "${var.key_name}"
    subnet_id = "${aws_subnet.dev1.id}"
+   associate_public_ip_address = "true"
    tags {
     Name = "terraform-january-${var.Created_by}-${count.index +1}"
     Env = "${var.Env}"
