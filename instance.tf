@@ -1,4 +1,4 @@
-resource "aws_instance" "web" {
+resource "aws_instance" "dev" {
    ami = "${var.ami}"
    instance_type = "${var.instance_type}"
    count = "${var.count}"
@@ -8,5 +8,6 @@ resource "aws_instance" "web" {
     Env = "${var.Env}"
     Dept = "${var.Dept}"
     Created_by = "${var.Created_by}"
+
  }
 }
