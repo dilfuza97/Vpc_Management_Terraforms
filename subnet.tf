@@ -1,8 +1,10 @@
 resource "aws_subnet" "dev1" {
   vpc_id     = "${aws_vpc.dev.id}"
   cidr_block = "10.0.1.0/24"
+  }
 
   
+<<<<<<< HEAD
   tags {
     Name = "terraform-january-${var.Created_by}-${count.index +1}"
     Env = "${var.Env}"
@@ -20,3 +22,6 @@ resource "aws_subnet" "dev1" {
     Dept = "${var.Dept}"
     Created_by = "${var.Created_by}"
   }
+=======
+
+>>>>>>> 74af8ff4a19f61703373d16fbc26498b0bd4d74b
