@@ -20,4 +20,3 @@ resource "aws_subnet" "dev1" {
     Dept = "${var.Dept}"
     Created_by = "${var.Created_by}"
   }
-}
