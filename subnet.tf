@@ -4,24 +4,3 @@ resource "aws_subnet" "dev1" {
   }
 
   
-<<<<<<< HEAD
-  tags {
-    Name = "terraform-january-${var.Created_by}-${count.index +1}"
-    Env = "${var.Env}"
-    Dept = "${var.Dept}"
-    Created_by = "${var.Created_by}"
-
-
-resource "aws_subnet" "dev2" {
-  vpc_id     = "${aws_vpc.dev.id}"
-  cidr_block = "10.0.2.0/24"
-
-  tags {
-    Name = "terraform-january-${var.Created_by}-${count.index +1}"
-    Env = "${var.Env}"
-    Dept = "${var.Dept}"
-    Created_by = "${var.Created_by}"
-  }
-=======
-
->>>>>>> 74af8ff4a19f61703373d16fbc26498b0bd4d74b
