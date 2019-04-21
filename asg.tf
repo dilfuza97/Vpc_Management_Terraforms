@@ -21,4 +21,4 @@ module "asg" {
   desired_capacity          = "${var.desired_capacity}"
   wait_for_capacity_timeout = 0
 
- 
+}
