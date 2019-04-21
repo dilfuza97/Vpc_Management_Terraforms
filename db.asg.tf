@@ -20,4 +20,3 @@ module "db-asg" {
   associate_public_ip_address	= "true"
 }
 
-}
