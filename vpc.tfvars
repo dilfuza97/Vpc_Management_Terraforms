@@ -5,3 +5,7 @@ key_name          =           "developer"
 Created_by        =           "dilfuza"
 Env               =           "Dev"
 Dept              =           "IT"
+Appname           =            "wordpress"
+min_size          =            1
+max_size          =            12
+desired_capacity  =            3
