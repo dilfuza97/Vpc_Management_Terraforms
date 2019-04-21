@@ -1,11 +1,11 @@
-resource "aws_security_group" "allow_mysql" {
-  name        = "allow_mysql"
+resource "aws_security_group" "allow_ssh" {
+  name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
   vpc_id      = "${aws_vpc.dev.id}"
 
   ingress {
-    from_port   = 3306
-    to_port     = 3306
+    from_port   = 22
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
