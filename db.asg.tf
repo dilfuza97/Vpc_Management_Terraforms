@@ -1,23 +1,29 @@
 
-module "db-asg" {
-  source = "terraform-aws-modules/autoscaling/aws"
+module "mysql" {
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "3.0"
+  name = "mysql"
 
-  name = "${var.DBname}"
 
   # Launch configuration
-  lc_name = "example-lc-db"
-  image_id        = "${var.db_ami}"
-  instance_type   = "${var.db_instance_type}"
-  security_groups = ["${aws_security_group.allow_mysql.id}"]
+  lc_name = "mysql-lc"
+  image_id        = "${var.ami}"
+  instance_type   = "${var.instance_type}"
+  security_groups = ["${aws_security_group.privateDB.id}"]
 
+ 
   # Auto scaling group
-  asg_name                  = "example-asg"
-  vpc_zone_identifier       = ["${aws_subnet.dev2.id}"]
+  asg_name                  = "mysql-asg"
+  vpc_zone_identifier       = ["${aws_subnet.private.id}"]
   health_check_type         = "EC2"
-  min_size                  = "${var.db_min_size}"
-  max_size                  = "${var.db_max_size}"
-  desired_capacity          = "${var.db_desired_capacity}"
+  min_size                  = "${var.min_db_size}"
+  max_size                  = "${var.max_db_size}"
+  desired_capacity          = "${var.desired_db_capacity}"
   wait_for_capacity_timeout = 0
-  associate_public_ip_address	= "true"
-  user_data = "${file("userdata.sh")}"
+  tags_as_map = {
+      Name = "${var.Name}-Mysql"
+      Env = "${var.Env}"
+      Created_by = "${var.Created_by}"
+      Dept = "${var.Dept}"
+  }
 }
